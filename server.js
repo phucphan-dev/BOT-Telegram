@@ -21,14 +21,24 @@ const banMember = async (chatId, userId) => {
 
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
-  if (msg.text === "/start") {
-    bot.sendMessage(chatId, "Hello, Nice to meet you. I'm a bot.");
-  }
-  if (msg.text.match(/bấm vào|avatar|vào nhóm/g)) {
+  if (msg.text.match(/bấm vào|avatar|vào nhóm|link kênh|theo dõi kênh|link gr|link group/g)) {
     removeMessage(chatId, msg.message_id);
   }
-  if (msg.text === "/lichhoc") {
-    bot.sendMessage(chatId, "Học thứ 2 4 6 mỗi tuần. 20h đến 22h nha ní ơi");
+  switch (msg.text) {
+    case "/start":
+      bot.sendMessage(chatId, "Hello, Nice to meet you. I'm a bot.");
+      break;
+    case "/lichhoc":
+      bot.sendMessage(chatId, "Học thứ 2 4 6 mỗi tuần. 20h đến 22h nha ní ơi");
+      break;
+    case "/linkhoc":
+      bot.sendMessage(chatId, "Google meet: https://meet.google.com/mdw-btek-tha");
+      break;
+    case "/tailieu":
+      bot.sendMessage(chatId, "Tài liệu: https://drive.google.com/drive/folders/1t01pGS2ytbLDh4lChmPX6Zj8w6BCHsSC?usp=sharing");
+      break;
+    default:
+      break;
   }
 });
 bot.on('polling_error', (error) => {
