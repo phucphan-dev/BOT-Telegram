@@ -21,7 +21,7 @@ const banMember = async (chatId, userId) => {
 
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
-  if (msg.text.match(/bấm vào|avatar|vào nhóm|link kênh|theo dõi kênh|link gr|link group/g)) {
+  if (msg.text.match(/bấm vào|avatar|vào nhóm|link kênh|theo dõi kênh|link gr|link group|tín hiệu|link ấn vào mình|ấn vào|xem kênh/g)) {
     removeMessage(chatId, msg.message_id);
   }
   switch (msg.text) {
